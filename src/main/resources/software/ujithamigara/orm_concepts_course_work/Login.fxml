@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="864.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="531.0" prefWidth="941.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.ujithamigara.orm_concepts_course_work.Controller.LoginController">
+   <children>
+      <ImageView fitHeight="462.0" fitWidth="564.0" layoutX="-8.0" layoutY="34.0">
+         <image>
+            <Image url="@assets/loginImage.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutX="510.0" layoutY="29.0" prefHeight="471.0" prefWidth="386.0" styleClass="login_base" stylesheets="@style/style.css">
+         <children>
+            <TextField fx:id="userNameTxtField" layoutX="95.0" layoutY="182.0" promptText="User Name">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </TextField>
+            <Label layoutX="95.0" layoutY="104.0" text="Login">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="96.0" layoutY="157.0" text="User Name">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <Label layoutX="96.0" layoutY="235.0" text="Password">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <JFXButton buttonType="RAISED" layoutX="96.0" layoutY="332.0" onAction="#loginButtonAction" prefHeight="25.0" prefWidth="210.0" styleClass="login_button" stylesheets="@style/style.css" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <CheckBox layoutX="96.0" layoutY="299.0" mnemonicParsing="false" onAction="#passwordCheckBoxOnAction" text="Visibale">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </CheckBox>
+            <JFXButton layoutX="210.0" layoutY="293.0" onAction="#forgetPasswordOnAction" text="Forget Password">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </JFXButton>
+            <PasswordField fx:id="passwordField" layoutX="96.0" layoutY="256.0" promptText="Password">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </PasswordField>
+         </children></Pane>
+   </children>
+</AnchorPane>
