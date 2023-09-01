@@ -15,11 +15,6 @@ public class LoginController {
     private TextField userNameTxtField;
 
     @FXML
-    void forgetPasswordOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void loginButtonAction(ActionEvent event) {
 
     }

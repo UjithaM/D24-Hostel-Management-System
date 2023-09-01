@@ -48,11 +48,6 @@
                   <Font size="11.0" />
                </font>
             </CheckBox>
-            <JFXButton layoutX="210.0" layoutY="293.0" onAction="#forgetPasswordOnAction" text="Forget Password">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </JFXButton>
             <PasswordField fx:id="passwordField" layoutX="96.0" layoutY="256.0" promptText="Password">
                <font>
                   <Font size="17.0" />
