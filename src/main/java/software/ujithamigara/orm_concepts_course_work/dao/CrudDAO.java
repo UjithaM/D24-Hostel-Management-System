@@ -6,5 +6,5 @@ public interface CrudDAO<entity> {
     boolean save(entity entity) throws SQLException;
     boolean delete(String id) throws SQLException;
     entity search(String id) throws SQLException ;
-    boolean update(entity dto) throws SQLException ;
+    boolean update(entity entity) throws SQLException ;
 }
