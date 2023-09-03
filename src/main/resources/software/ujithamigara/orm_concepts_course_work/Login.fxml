@@ -43,7 +43,7 @@
                   <Font name="Arial Bold" size="20.0" />
                </font>
             </JFXButton>
-            <CheckBox layoutX="96.0" layoutY="299.0" mnemonicParsing="false" onAction="#passwordCheckBoxOnAction" text="Visibale">
+            <CheckBox fx:id="passwordCheckBox" layoutX="96.0" layoutY="299.0" mnemonicParsing="false" onAction="#passwordCheckBoxOnAction" text="Visibale">
                <font>
                   <Font size="11.0" />
                </font>
