@@ -22,7 +22,7 @@ public class RoomDAOImpl implements RoomDAO {
     }
 
     @Override
-    public boolean update(Room dto) throws SQLException {
+    public boolean update(Room room) throws SQLException {
         return false;
     }
 }
