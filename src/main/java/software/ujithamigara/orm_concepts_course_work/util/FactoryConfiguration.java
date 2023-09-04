@@ -2,6 +2,7 @@ package software.ujithamigara.orm_concepts_course_work.util;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import software.ujithamigara.orm_concepts_course_work.entity.Reservation;
 import software.ujithamigara.orm_concepts_course_work.entity.Room;
 import software.ujithamigara.orm_concepts_course_work.entity.Student;
 
@@ -27,6 +28,7 @@ public class FactoryConfiguration {
         configuration.addProperties(properties);
         configuration.addAnnotatedClass(Student.class);
         configuration.addAnnotatedClass(Room.class);
+        configuration.addAnnotatedClass(Reservation.class);
 
         //build session factory
         sessionFactory = configuration.buildSessionFactory();
