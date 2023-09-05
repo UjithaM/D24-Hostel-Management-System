@@ -16,7 +16,13 @@ public class LoginController {
 
     @FXML
     private JFXTextField userNameTxtField;
+    @FXML
+    private JFXTextField passwordReviledTextField;
 
+    public void initialize() {
+        passwordReviledTextField.setVisible(false);
+        passwordReviledTextField.setEditable(false);
+    }
     @FXML
     void loginButtonAction(ActionEvent event) {
 
@@ -24,5 +30,14 @@ public class LoginController {
 
     @FXML
     void passwordCheckBoxOnAction(ActionEvent event) {
+        if (passwordCheckBox.isSelected()) {
+            passwordField.setVisible(false);
+            passwordReviledTextField.setVisible(true);
+            passwordReviledTextField.setText(passwordField.getText());
+        }else {
+            passwordField.setVisible(true);
+            passwordReviledTextField.setVisible(false);
+            passwordReviledTextField.setText("");
+        }
     }
 }

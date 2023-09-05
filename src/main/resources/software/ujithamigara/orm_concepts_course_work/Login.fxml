@@ -25,7 +25,7 @@
                   <Font name="System Bold" size="26.0" />
                </font>
             </Label>
-            <JFXButton buttonType="RAISED" layoutX="96.0" layoutY="332.0" onAction="#loginButtonAction" prefHeight="25.0" prefWidth="210.0" styleClass="login_button" stylesheets="@style/style.css" text="Login" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="96.0" layoutY="299.0" onAction="#loginButtonAction" prefHeight="25.0" prefWidth="210.0" styleClass="login_button" stylesheets="@style/style.css" text="Login" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="20.0" />
                </font>
@@ -45,6 +45,11 @@
                   <Font size="17.0" />
                </font>
             </JFXPasswordField>
+            <JFXTextField fx:id="passwordReviledTextField" labelFloat="true" layoutX="97.0" layoutY="228.0" promptText="Password">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </JFXTextField>
          </children></Pane>
    </children>
 </AnchorPane>
