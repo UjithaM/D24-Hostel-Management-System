@@ -29,22 +29,7 @@ public class RoomDAOImpl implements RoomDAO {
 
     @Override
     public boolean delete(String id) throws SQLException, IOException {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        try {
-            int deletedRows = session.createNativeQuery("DELETE FROM Room WHERE roomId = ?")
-                    .setParameter(1, id)
-                    .executeUpdate();
-            transaction.commit();
-
-            return deletedRows > 0; // Return true if rows were deleted, false otherwise
-        } catch (Exception e) {
-            transaction.rollback();
-            e.printStackTrace();
-            return false; // Return false to indicate delete failure
-        } finally {
-            session.close();
-        }
+        return false;
     }
 
     @Override
