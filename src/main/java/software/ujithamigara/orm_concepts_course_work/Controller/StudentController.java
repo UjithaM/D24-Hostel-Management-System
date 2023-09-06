@@ -8,9 +8,6 @@ import javafx.scene.control.ToggleGroup;
 public class StudentController {
 
     @FXML
-    private ToggleGroup Gender;
-
-    @FXML
     private ToggleGroup GenderRadioButton;
 
     @FXML

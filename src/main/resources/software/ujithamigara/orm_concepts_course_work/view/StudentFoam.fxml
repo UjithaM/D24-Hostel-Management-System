@@ -28,7 +28,7 @@
                   <Pane prefHeight="49.0" prefWidth="191.0" />
                   <HBox prefHeight="35.0" prefWidth="191.0">
                      <children>
-                        <RadioButton mnemonicParsing="false" selected="true" text="Male  ">
+                        <RadioButton mnemonicParsing="false" text="Male  ">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -36,13 +36,10 @@
                               <ToggleGroup fx:id="GenderRadioButton" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Female">
+                        <RadioButton mnemonicParsing="false" text="Female" toggleGroup="$GenderRadioButton">
                            <font>
                               <Font size="20.0" />
                            </font>
-                           <toggleGroup>
-                              <ToggleGroup fx:id="Gender" />
-                           </toggleGroup>
                         </RadioButton>
                      </children>
                   </HBox>
