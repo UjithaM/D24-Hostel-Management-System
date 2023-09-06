@@ -1,8 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="740.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.ujithamigara.orm_concepts_course_work.Controller.StudentController">
-
+   <children>
+      <HBox layoutX="73.0" layoutY="58.0" prefHeight="208.0" prefWidth="1050.0">
+         <children>
+            <VBox prefHeight="208.0" prefWidth="191.0">
+               <children>
+                  <Pane prefHeight="42.0" prefWidth="278.0" />
+                  <JFXTextField fx:id="studentIDTextField" labelFloat="true" promptText="Student Id">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </JFXTextField>
+                  <Pane prefHeight="49.0" prefWidth="191.0" />
+                  <HBox prefHeight="35.0" prefWidth="191.0">
+                     <children>
+                        <RadioButton mnemonicParsing="false" selected="true" text="Male  ">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="GenderRadioButton" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Female">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Gender" />
+                           </toggleGroup>
+                        </RadioButton>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Pane prefHeight="270.0" prefWidth="140.0" />
+            <VBox prefHeight="208.0" prefWidth="333.0">
+               <children>
+                  <Pane prefHeight="42.0" prefWidth="278.0" />
+                  <JFXTextField fx:id="studentNameTextField" labelFloat="true" promptText="Student Name">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </JFXTextField>
+                  <Pane prefHeight="42.0" prefWidth="278.0" />
+                  <JFXTextField fx:id="studentContactTextField" labelFloat="true" prefHeight="43.0" prefWidth="162.0" promptText="Student Contact">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </JFXTextField>
+               </children>
+            </VBox>
+            <Pane prefHeight="270.0" prefWidth="140.0" />
+            <VBox prefHeight="208.0" prefWidth="233.0">
+               <children>
+                  <Pane prefHeight="42.0" prefWidth="278.0" />
+                  <JFXTextField fx:id="studentAddressTextField" labelFloat="true" promptText="Student Address">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </JFXTextField>
+                  <Pane prefHeight="42.0" prefWidth="278.0" />
+                  <JFXTextField fx:id="dateOfBirthTextField" labelFloat="true" prefHeight="43.0" prefWidth="162.0" promptText="Data of Birth">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </JFXTextField>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Label layoutX="524.0" layoutY="18.0" prefHeight="54.0" prefWidth="158.0" text="Students">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <HBox layoutX="702.0" layoutY="272.0" prefHeight="64.0" prefWidth="412.0">
+         <children>
+            <JFXButton buttonType="RAISED" onAction="#saveButtonAction" prefHeight="62.0" prefWidth="113.0" style="-fx-background-color: green;" text="Save" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </JFXButton>
+            <Pane prefHeight="64.0" prefWidth="37.0" />
+            <JFXButton buttonType="RAISED" onAction="#updateOnAction" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: blue;" text="Update" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </JFXButton>
+            <Pane prefHeight="64.0" prefWidth="37.0" />
+            <JFXButton buttonType="RAISED" onAction="#deleteOnAction" prefHeight="62.0" prefWidth="105.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+      <TableView layoutX="64.0" layoutY="362.0" prefHeight="340.0" prefWidth="1052.0" style="-fx-border-color: #765827;">
+         <columns>
+            <TableColumn prefWidth="64.0" text="Id" />
+            <TableColumn prefWidth="302.93336486816406" text="Name" />
+            <TableColumn prefWidth="264.2666015625" text="Address" />
+            <TableColumn prefWidth="185.3333740234375" text="Contact" />
+            <TableColumn prefWidth="131.73330688476562" text="DOB" />
+            <TableColumn prefWidth="104.0" text="Gender" />
+         </columns>
+      </TableView>
+   </children>
 </AnchorPane>
