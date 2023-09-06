@@ -15,14 +15,20 @@ import java.util.Date;
 @Table(name = "Reservation")
 @Entity
 public class Reservation {
+
     @Id
     @Column(name = "reservation_id")
     private String reservationId;
+
     @Column(name = "date")
     private Date date;
+
     @Column(name = "status")
     private String status;
 
+    @Column(name = "room-id")
     private Room room;
+
+    @Column(name = "student_id")
     private Student student;
 }
