@@ -57,4 +57,8 @@ public class LoginController {
             passwordReviledTextField.setText("");
         }
     }
+
+    public void signUpBtnOnAction(ActionEvent actionEvent) {
+
+    }
 }

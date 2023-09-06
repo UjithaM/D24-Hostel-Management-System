@@ -50,6 +50,21 @@
                   <Font size="17.0" />
                </font>
             </JFXTextField>
+            <Label layoutX="94.0" layoutY="340.0" prefHeight="16.0" prefWidth="215.0" text="Don't have an user account ?">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="255.0" layoutY="365.0" onAction="#signUpBtnOnAction" prefHeight="24.0" prefWidth="57.0" text="Sign up" textFill="#0053ff">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="95.0" layoutY="364.0" prefHeight="5.0" prefWidth="169.0" text="Please register as a user">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
          </children></Pane>
    </children>
 </AnchorPane>
