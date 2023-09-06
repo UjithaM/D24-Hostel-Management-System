@@ -25,7 +25,7 @@
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="33.0">
                      <image>
-                        <Image url="@assets/Analytics.png" />
+                        <Image url="@../assets/Analytics.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -38,7 +38,7 @@
                <graphic>
                   <ImageView fitHeight="33.0" fitWidth="33.0">
                      <image>
-                        <Image url="@assets/Schoolboy at a Desk.png" />
+                        <Image url="@../assets/Schoolboy at a Desk.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -51,7 +51,7 @@
                <graphic>
                   <ImageView fitHeight="33.0" fitWidth="33.0">
                      <image>
-                        <Image url="@assets/Open Door.png" />
+                        <Image url="@../assets/Open Door.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -64,7 +64,7 @@
                <graphic>
                   <ImageView fitHeight="33.0" fitWidth="33.0">
                      <image>
-                        <Image url="@assets/Reserve.png" />
+                        <Image url="@../assets/Reserve.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -77,14 +77,14 @@
                <graphic>
                   <ImageView fitHeight="33.0" fitWidth="33.0">
                      <image>
-                        <Image url="@assets/Logout.png" />
+                        <Image url="@../assets/Logout.png" />
                      </image>
                   </ImageView>
                </graphic>
             </JFXButton>
          </children>
       </VBox>
-      <AnchorPane fx:id="root" layoutX="302.0" layoutY="28.0" prefHeight="740.0" prefWidth="1201.0">
+      <AnchorPane fx:id="root" layoutX="302.0" layoutY="28.0" prefHeight="740.0" prefWidth="1200.0">
          <children>
             <Label layoutX="18.0" layoutY="29.0" opacity="0.91" prefHeight="36.0" prefWidth="545.0" text="Welcome To D24 Hostel Management System">
                <font>
@@ -142,7 +142,7 @@
             </Label>
             <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="951.0" layoutY="39.0">
                <image>
-                  <Image url="@assets/Male User.png" />
+                  <Image url="@../assets/Male User.png" />
                </image>
             </ImageView>
             <Label layoutX="1020.0" layoutY="261.0" opacity="0.54" prefHeight="34.0" prefWidth="73.0" text="Admin">
@@ -191,7 +191,7 @@
       </AnchorPane>
       <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="87.0" layoutY="15.0">
          <image>
-            <Image url="@assets/Hotel.png" />
+            <Image url="@../assets/Hotel.png" />
          </image>
       </ImageView>
    </children>

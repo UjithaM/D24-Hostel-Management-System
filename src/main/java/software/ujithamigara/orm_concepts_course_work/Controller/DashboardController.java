@@ -33,7 +33,7 @@ public class DashboardController {
     @FXML
     void dashboardButtonOnAction(ActionEvent event) {
         try {
-            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/software/ujithamigara/orm_concepts_course_work/Dashboard.fxml"));
+            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/software/ujithamigara/orm_concepts_course_work/view/Dashboard.fxml"));
             Stage stage = (Stage) root.getScene().getWindow();
             stage.setScene(new Scene(anchorPane));
             stage.setTitle("D24 Hostel Management System - Dashboard");
@@ -52,7 +52,7 @@ public class DashboardController {
     @FXML
     void roomButtonOnAction(ActionEvent event)  {
         try {
-            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/software/ujithamigara/orm_concepts_course_work/RoomFoam.fxml"));
+            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/software/ujithamigara/orm_concepts_course_work/view/RoomFoam.fxml"));
             Stage stage = (Stage) root.getScene().getWindow();
             root.getChildren().clear();
             root.getChildren().add(anchorPane);
@@ -72,11 +72,11 @@ public class DashboardController {
     @FXML
     void studentButtonOnAction(ActionEvent event) {
         try {
-            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/software/ujithamigara/orm_concepts_course_work/Student.fxml"));
+            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/software/ujithamigara/orm_concepts_course_work/view/Student.fxml"));
             Stage stage = (Stage) root.getScene().getWindow();
             root.getChildren().clear();
             root.getChildren().add(anchorPane);
-            stage.setTitle("D24 Hostel Management System - Room");
+            stage.setTitle("D24 Hostel Management System - Student");
             stage.centerOnScreen();
             stage.show();
         } catch (IOException e) {
