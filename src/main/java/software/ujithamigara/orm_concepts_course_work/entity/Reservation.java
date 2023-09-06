@@ -4,8 +4,14 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "Reservation")
 @Entity
 public class Reservation {
@@ -17,36 +23,6 @@ public class Reservation {
     @Column(name = "status")
     private String status;
 
-    public Reservation() {
-    }
-
-    public Reservation(String reservationId, Date date, String status) {
-        this.reservationId = reservationId;
-        this.date = date;
-        this.status = status;
-    }
-
-    public String getReservationId() {
-        return reservationId;
-    }
-
-    public void setReservationId(String reservationId) {
-        this.reservationId = reservationId;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
+    private Room room;
+    private Student student;
 }
