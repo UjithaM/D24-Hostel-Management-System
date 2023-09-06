@@ -72,7 +72,7 @@ public class DashboardController {
     @FXML
     void studentButtonOnAction(ActionEvent event) {
         try {
-            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/software/ujithamigara/orm_concepts_course_work/view/Student.fxml"));
+            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/software/ujithamigara/orm_concepts_course_work/view/StudentFoam.fxml"));
             Stage stage = (Stage) root.getScene().getWindow();
             root.getChildren().clear();
             root.getChildren().add(anchorPane);
