@@ -1,14 +1,14 @@
 package software.ujithamigara.orm_concepts_course_work.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -34,4 +34,7 @@ public class Student {
 
     @Column(name = "gender")
     private String gender;
+
+    @OneToMany(targetEntity = Reservation.class, mappedBy = "student")
+    private List<Reservation> reservationList = new ArrayList<>();
 }

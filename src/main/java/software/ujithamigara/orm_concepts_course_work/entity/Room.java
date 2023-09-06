@@ -1,12 +1,12 @@
 package software.ujithamigara.orm_concepts_course_work.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -28,4 +28,6 @@ public class Room {
     @Column(name = "quantity")
     private Integer quantity;
 
+    @OneToMany(mappedBy = "room", targetEntity = Reservation.class)
+    List<Reservation> reservationList = new ArrayList<>();
 }
