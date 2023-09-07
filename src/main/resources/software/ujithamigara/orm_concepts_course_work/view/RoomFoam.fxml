@@ -38,7 +38,7 @@
             <VBox prefHeight="270.0" prefWidth="178.0">
                <children>
                   <Pane prefHeight="42.0" prefWidth="278.0" />
-                  <JFXComboBox fx:id="roomTypeComboBOx" labelFloat="true" prefHeight="41.0" prefWidth="278.0" promptText="Room Type" styleClass="combo-box-popup" stylesheets="@../style/style.css" />
+                  <JFXComboBox fx:id="roomTypeComboBOx" labelFloat="true" prefHeight="41.0" prefWidth="278.0" promptText="Room Type" styleClass="font_size" stylesheets="@../style/style.css" />
                </children>
             </VBox>
             <Pane prefHeight="270.0" prefWidth="127.0" />
