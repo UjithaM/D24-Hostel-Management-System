@@ -3,7 +3,7 @@ package software.ujithamigara.orm_concepts_course_work.dao;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public interface CrudDAO<entity> {
+public interface CrudDAO<entity> extends SuperDAO{
     boolean save(entity entity) throws SQLException, IOException;
     boolean delete(String id) throws SQLException, IOException;
     entity search(String id) throws SQLException, IOException ;
