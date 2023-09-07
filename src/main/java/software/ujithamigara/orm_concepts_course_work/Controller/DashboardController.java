@@ -46,7 +46,17 @@ public class DashboardController {
 
     @FXML
     void reservationButtonOnAction(ActionEvent event) {
-
+        try {
+            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/software/ujithamigara/orm_concepts_course_work/view/ReservationFoam.fxml"));
+            Stage stage = (Stage) root.getScene().getWindow();
+            root.getChildren().clear();
+            root.getChildren().add(anchorPane);
+            stage.setTitle("D24 Hostel Management System - Reservation");
+            stage.centerOnScreen();
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -66,7 +76,16 @@ public class DashboardController {
 
     @FXML
     void signOutButtonOnAction(ActionEvent event) {
-
+        try {
+            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/software/ujithamigara/orm_concepts_course_work/view/Login.fxml"));
+            Stage stage = (Stage) root.getScene().getWindow();
+            stage.setScene(new Scene(anchorPane));
+            stage.setTitle("D24 Hostel Management System - Login");
+            stage.centerOnScreen();
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -77,6 +96,19 @@ public class DashboardController {
             root.getChildren().clear();
             root.getChildren().add(anchorPane);
             stage.setTitle("D24 Hostel Management System - Student");
+            stage.centerOnScreen();
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void settingButtonOnAction(ActionEvent actionEvent) {
+        try {
+            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/software/ujithamigara/orm_concepts_course_work/view/ForgetPasswordForm.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(anchorPane));
+            stage.setTitle("Forget Password");
             stage.centerOnScreen();
             stage.show();
         } catch (IOException e) {

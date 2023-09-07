@@ -187,6 +187,15 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </AreaChart>
+            <JFXButton buttonType="RAISED" layoutX="1012.0" layoutY="576.0" onAction="#settingButtonOnAction" text=" ">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../assets/Settings.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
          </children>
       </AnchorPane>
       <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="87.0" layoutY="15.0">
