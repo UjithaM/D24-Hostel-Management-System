@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="531.0" prefWidth="941.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.ujithamigara.orm_concepts_course_work.Controller.LoginController">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1550.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.ujithamigara.orm_concepts_course_work.Controller.LoginController">
    <children>
-      <ImageView fitHeight="462.0" fitWidth="564.0" layoutX="-8.0" layoutY="34.0">
+      <ImageView fitHeight="462.0" fitWidth="534.0" layoutX="316.0" layoutY="125.0">
          <image>
             <Image url="@../assets/loginImage.jpg" />
          </image>
       </ImageView>
-      <Pane layoutX="510.0" layoutY="29.0" prefHeight="471.0" prefWidth="386.0" styleClass="login_base" stylesheets="@../style/style.css">
+      <Pane layoutX="851.0" layoutY="118.0" prefHeight="471.0" prefWidth="386.0" styleClass="login_base" stylesheets="@../style/style.css">
          <children>
             <Label layoutX="95.0" layoutY="104.0" text="Login">
                <font>
