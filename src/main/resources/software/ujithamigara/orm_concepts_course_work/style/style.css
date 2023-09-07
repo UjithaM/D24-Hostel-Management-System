@@ -6,6 +6,6 @@
 .login_button{
     -fx-background-color: blue;
 }
-.combo-box-popup .list-view {
+.font_size {
     -fx-font-size : 20px;
 }
