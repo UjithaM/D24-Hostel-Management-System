@@ -1,14 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="software.ujithamigara.orm_concepts_course_work.Controller.ReservationFoamController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="740.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.ujithamigara.orm_concepts_course_work.Controller.StudentController">
+   <children>
+      <HBox layoutX="73.0" layoutY="58.0" prefHeight="208.0" prefWidth="1050.0">
+         <children>
+            <VBox prefHeight="208.0" prefWidth="212.0">
+               <children>
+                  <Pane prefHeight="42.0" prefWidth="278.0" />
+                  <JFXTextField fx:id="ReservationIdTextField" labelFloat="true" promptText="Reservation Id">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </JFXTextField>
+                  <Pane prefHeight="49.0" prefWidth="191.0" />
+                  <HBox prefHeight="35.0" prefWidth="191.0">
+                     <children>
+                        <RadioButton mnemonicParsing="false" prefHeight="30.0" prefWidth="93.0" text="Paid">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="PaidStatus" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Not Paid" toggleGroup="$PaidStatus">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Pane prefHeight="270.0" prefWidth="140.0" />
+            <VBox prefHeight="208.0" prefWidth="190.0">
+               <children>
+                  <Pane prefHeight="42.0" prefWidth="278.0" />
+                  <DatePicker fx:id="ReservationDatePicker" prefHeight="37.0" prefWidth="190.0" styleClass="font_size" stylesheets="@../style/style.css" />
+                  <Pane prefHeight="42.0" prefWidth="278.0" />
+                  <JFXComboBox fx:id="roomIdComboBox" labelFloat="true" prefHeight="26.0" prefWidth="193.0" promptText="Room Id" styleClass="font_size" stylesheets="@../style/style.css" />
+               </children>
+            </VBox>
+            <Pane prefHeight="270.0" prefWidth="140.0" />
+            <VBox prefHeight="208.0" prefWidth="233.0">
+               <children>
+                  <Pane prefHeight="42.0" prefWidth="278.0" />
+                  <JFXComboBox fx:id="studentIdComboBOx" labelFloat="true" prefHeight="26.0" prefWidth="193.0" promptText="Student Id" styleClass="font_size" stylesheets="@../style/style.css" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Label layoutX="498.0" layoutY="14.0" prefHeight="54.0" prefWidth="202.0" text="Reservation">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <HBox layoutX="702.0" layoutY="272.0" prefHeight="64.0" prefWidth="412.0">
+         <children>
+            <JFXButton buttonType="RAISED" onAction="#saveButtonAction" prefHeight="62.0" prefWidth="113.0" style="-fx-background-color: green;" text="Save" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </JFXButton>
+            <Pane prefHeight="64.0" prefWidth="37.0" />
+            <JFXButton buttonType="RAISED" onAction="#updateOnAction" prefHeight="62.0" prefWidth="122.0" style="-fx-background-color: blue;" text="Update" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </JFXButton>
+            <Pane prefHeight="64.0" prefWidth="37.0" />
+            <JFXButton buttonType="RAISED" onAction="#deleteOnAction" prefHeight="62.0" prefWidth="105.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+      <TableView layoutX="64.0" layoutY="362.0" prefHeight="340.0" prefWidth="1052.0" style="-fx-border-color: #765827;">
+         <columns>
+            <TableColumn prefWidth="109.60000610351562" text="Reservation ID" />
+            <TableColumn prefWidth="344.0" text="Student Name" />
+            <TableColumn prefWidth="220.00006103515625" text="Room Type" />
+            <TableColumn prefWidth="202.4000244140625" text="Paid Status" />
+            <TableColumn prefWidth="174.39996337890625" text="DOB" />
+         </columns>
+      </TableView>
+   </children>
 </AnchorPane>
