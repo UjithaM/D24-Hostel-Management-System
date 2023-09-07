@@ -42,4 +42,21 @@ public class UserDAOImpl implements UserDAO {
             session.close();
         }
     }
+
+    @Override
+    public User search(String name) throws IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            User user = session.get(User.class, name);
+            transaction.commit();
+            return user;
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
 }

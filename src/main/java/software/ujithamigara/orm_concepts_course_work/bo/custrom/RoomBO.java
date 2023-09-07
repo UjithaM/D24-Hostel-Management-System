@@ -1,11 +1,15 @@
 package software.ujithamigara.orm_concepts_course_work.bo.custrom;
 
+import software.ujithamigara.orm_concepts_course_work.bo.SuperBo;
 import software.ujithamigara.orm_concepts_course_work.dto.RoomDTO;
 import software.ujithamigara.orm_concepts_course_work.dto.StudentDTO;
 
-public interface RoomBO {
-    boolean saveRoom(RoomDTO roomDTO);
-    boolean deleteRoom(RoomDTO roomDTO);
-    StudentDTO searchRoom(String roomId);
-    boolean updateStudent(RoomDTO roomDTO);
+import java.io.IOException;
+import java.sql.SQLException;
+
+public interface RoomBO extends SuperBo {
+    boolean saveRoom(RoomDTO roomDTO) throws SQLException, IOException;
+    boolean deleteRoom(RoomDTO roomDTO) throws SQLException, IOException;
+    RoomDTO searchRoom(String roomId) throws SQLException, IOException;
+    boolean updateRoom(RoomDTO roomDTO) throws SQLException, IOException;
 }
