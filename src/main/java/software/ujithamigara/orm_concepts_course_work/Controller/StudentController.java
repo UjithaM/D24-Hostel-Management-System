@@ -41,6 +41,7 @@ public class StudentController {
         try {
             if(studentBO.deleteStudent(studentIDTextField.getText())){
                 new Alert(Alert.AlertType.CONFIRMATION, "Student deleted successfully ! ").show();
+                clear();
             }else {
                 new Alert(Alert.AlertType.ERROR, "Student Not deleted ! ").show();
             }
@@ -58,6 +59,7 @@ public class StudentController {
                     studentAddressTextField.getText(), studentContactTextField.getText(),
                     dateOfBirthDatePicker.getValue(), selectedRadioButton.getText()))){
                 new Alert(Alert.AlertType.CONFIRMATION, "Student saved successfully ! ").show();
+                clear();
             }else {
                 new Alert(Alert.AlertType.ERROR, "Student not saved ! ").show();
             }
@@ -75,6 +77,7 @@ public class StudentController {
                     studentAddressTextField.getText(), studentContactTextField.getText(),
                     dateOfBirthDatePicker.getValue(), selectedRadioButton.getText()))){
                 new Alert(Alert.AlertType.CONFIRMATION, "Student Update successfully ! ").show();
+                clear();
             }else {
                 new Alert(Alert.AlertType.ERROR, "Student not Updated ! ").show();
             }
@@ -83,5 +86,11 @@ public class StudentController {
             e.printStackTrace();
         }
     }
-
+    void clear(){
+        studentIDTextField.setText("");
+        studentNameTextField.setText("");
+        studentAddressTextField.setText("");
+        studentContactTextField.setText("");
+        dateOfBirthDatePicker.setValue(null);
+    }
 }
