@@ -115,7 +115,30 @@ public class ReservationFoamController {
 
     @FXML
     void updateOnAction(ActionEvent event) {
+        try {
+            RadioButton radioButton = (RadioButton) PaidStatus.getSelectedToggle();
 
+            StudentDTO studentDTO = studentBO.searchStudent(studentIdComboBOx.getValue());
+            Student student = new Student();
+            student.setStudentId(studentDTO.getStudentId());
+            student.setStudentName(studentDTO.getStudentName());
+            student.setAddress(studentDTO.getAddress());
+            student.setContactNumber(studentDTO.getContactNumber());
+            student.setDob(studentDTO.getDob());
+            student.setGender(studentDTO.getGender());
+
+            RoomDTO roomDTO = roomBO.searchRoom(roomIdComboBox.getValue());
+            Room room = new Room();
+            room.setRoomId(roomDTO.getRoomId());
+            room.setRoomTypeId(roomDTO.getRoomTypeId());
+            room.setKeyMoney(roomDTO.getKeyMoney());
+            room.setQuantity(roomDTO.getQuantity());
+
+            reservationBO.updateReservation(new ReservationDTO(reservationIdTextField.getText(), reservationDatePicker.getValue(), radioButton.getText(), student, room));
+            new Alert(Alert.AlertType.CONFIRMATION, "reservation updated successfully ! ").show();
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "reservation not updated ! ").show();
+        }
     }
 
 }
