@@ -29,7 +29,7 @@
                   <Pane prefHeight="49.0" prefWidth="191.0" />
                   <HBox prefHeight="35.0" prefWidth="191.0">
                      <children>
-                        <RadioButton mnemonicParsing="false" text="Male  ">
+                        <RadioButton fx:id="rBtnMale" mnemonicParsing="false" text="Male  ">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -37,7 +37,7 @@
                               <ToggleGroup fx:id="GenderRadioButton" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Female" toggleGroup="$GenderRadioButton">
+                        <RadioButton fx:id="rBtnFemale" mnemonicParsing="false" text="Female" toggleGroup="$GenderRadioButton">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -73,7 +73,7 @@
                      </font>
                   </JFXTextField>
                   <Pane prefHeight="42.0" prefWidth="278.0" />
-                  <DatePicker fx:id="dateOfBirthDatePicker" styleClass="font_size" stylesheets="@../style/style.css" />
+                  <DatePicker fx:id="dateOfBirthDatePicker" promptText="Date Of Birth" styleClass="font_size" stylesheets="@../style/style.css" />
                </children>
             </VBox>
          </children>
@@ -85,7 +85,7 @@
       </Label>
       <HBox layoutX="702.0" layoutY="272.0" prefHeight="64.0" prefWidth="412.0">
          <children>
-            <JFXButton buttonType="RAISED" onAction="#saveButtonAction" prefHeight="62.0" prefWidth="113.0" style="-fx-background-color: green;" text="Save" textFill="WHITE">
+            <JFXButton fx:id="saveButton" buttonType="RAISED" onAction="#saveButtonAction" prefHeight="62.0" prefWidth="113.0" style="-fx-background-color: green;" text="Save" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
@@ -104,14 +104,14 @@
             </JFXButton>
          </children>
       </HBox>
-      <TableView layoutX="64.0" layoutY="362.0" prefHeight="340.0" prefWidth="1052.0" style="-fx-border-color: #765827;">
+      <TableView fx:id="studentTable" layoutX="64.0" layoutY="362.0" onMouseClicked="#tblStudentOnMouseClicked" prefHeight="340.0" prefWidth="1052.0" style="-fx-border-color: #765827;">
          <columns>
-            <TableColumn prefWidth="64.0" text="Id" />
-            <TableColumn prefWidth="302.93336486816406" text="Name" />
-            <TableColumn prefWidth="264.2666015625" text="Address" />
-            <TableColumn prefWidth="185.3333740234375" text="Contact" />
-            <TableColumn prefWidth="131.73330688476562" text="DOB" />
-            <TableColumn prefWidth="104.0" text="Gender" />
+            <TableColumn fx:id="studentIdCol" prefWidth="83.20001220703125" text="Id" />
+            <TableColumn fx:id="studentNameCol" prefWidth="310.3999786376953" text="Name" />
+            <TableColumn fx:id="studentAddressCol" prefWidth="239.199951171875" text="Address" />
+            <TableColumn fx:id="studentContactCol" prefWidth="185.3333740234375" text="Contact" />
+            <TableColumn fx:id="DOBCol" prefWidth="131.73330688476562" text="DOB" />
+            <TableColumn fx:id="genderCol" prefWidth="93.5999755859375" text="Gender" />
          </columns>
       </TableView>
    </children>
