@@ -11,5 +11,5 @@ public interface CrudDAO<entity> extends SuperDAO{
     boolean delete(String id) throws SQLException, IOException;
     entity search(String id) throws SQLException, IOException ;
     boolean update(entity entity) throws SQLException, IOException ;
-    public List<entity> getAllRooms() throws SQLException, IOException;
+    public List<entity> getAll() throws SQLException, IOException;
 }
