@@ -83,7 +83,7 @@ public class RoomDAOImpl implements RoomDAO {
     }
 
     @Override
-    public List<Room> getAllRooms() throws SQLException, IOException {
+    public List<Room> getAll() throws SQLException, IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         List<Room> rooms = null;
