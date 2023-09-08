@@ -39,11 +39,14 @@ public class StudentController {
     @FXML
     void deleteOnAction(ActionEvent event) {
         try {
-            studentBO.deleteStudent(studentIDTextField.getText());
-            new Alert(Alert.AlertType.CONFIRMATION, "Student deleted successfully ! ").show();
+            if(studentBO.deleteStudent(studentIDTextField.getText())){
+                new Alert(Alert.AlertType.CONFIRMATION, "Student deleted successfully ! ").show();
+            }else {
+                new Alert(Alert.AlertType.ERROR, "Student Not deleted ! ").show();
+            }
         } catch (Exception e) {
-            e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Student Not deleted ! ").show();
+            e.printStackTrace();
         }
     }
 
@@ -51,13 +54,16 @@ public class StudentController {
     void saveButtonAction(ActionEvent event) {
         try {
             RadioButton selectedRadioButton = (RadioButton) GenderRadioButton.getSelectedToggle();
-            studentBO.saveStudent(new StudentDTO(studentIDTextField.getText(), studentNameTextField.getText(),
+            if(studentBO.saveStudent(new StudentDTO(studentIDTextField.getText(), studentNameTextField.getText(),
                     studentAddressTextField.getText(), studentContactTextField.getText(),
-                    dateOfBirthDatePicker.getValue(), selectedRadioButton.getText()));
-            new Alert(Alert.AlertType.CONFIRMATION, "Student saved successfully ! ").show();
+                    dateOfBirthDatePicker.getValue(), selectedRadioButton.getText()))){
+                new Alert(Alert.AlertType.CONFIRMATION, "Student saved successfully ! ").show();
+            }else {
+                new Alert(Alert.AlertType.ERROR, "Student not saved ! ").show();
+            }
         } catch (Exception e) {
-            e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Student not saved ! ").show();
+            e.printStackTrace();
         }
     }
 
@@ -65,13 +71,16 @@ public class StudentController {
     void updateOnAction(ActionEvent event) {
         try {
             RadioButton selectedRadioButton = (RadioButton) GenderRadioButton.getSelectedToggle();
-            studentBO.updateStudent(new StudentDTO(studentIDTextField.getText(), studentNameTextField.getText(),
+            if(studentBO.updateStudent(new StudentDTO(studentIDTextField.getText(), studentNameTextField.getText(),
                     studentAddressTextField.getText(), studentContactTextField.getText(),
-                    dateOfBirthDatePicker.getValue(), selectedRadioButton.getText()));
-            new Alert(Alert.AlertType.CONFIRMATION, "Student Update successfully ! ").show();
+                    dateOfBirthDatePicker.getValue(), selectedRadioButton.getText()))){
+                new Alert(Alert.AlertType.CONFIRMATION, "Student Update successfully ! ").show();
+            }else {
+                new Alert(Alert.AlertType.ERROR, "Student not Updated ! ").show();
+            }
         } catch (Exception e) {
-            e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Student not Updated ! ").show();
+            e.printStackTrace();
         }
     }
 
