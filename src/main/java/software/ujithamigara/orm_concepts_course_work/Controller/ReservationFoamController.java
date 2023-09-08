@@ -79,6 +79,7 @@ public class ReservationFoamController {
         try {
             reservationBO.deleteReservation(reservationIdTextField.getText());
             new Alert(Alert.AlertType.CONFIRMATION, "reservation deleted successfully !").show();
+            clear();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "reservation not deleted !").show();
             e.printStackTrace();
@@ -108,6 +109,7 @@ public class ReservationFoamController {
 
             reservationBO.saveReservation(new ReservationDTO(reservationIdTextField.getText(), reservationDatePicker.getValue(), radioButton.getText(), student, room));
             new Alert(Alert.AlertType.CONFIRMATION, "reservation added successfully ! ").show();
+            clear();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "reservation not added ! ").show();
         }
@@ -136,9 +138,15 @@ public class ReservationFoamController {
 
             reservationBO.updateReservation(new ReservationDTO(reservationIdTextField.getText(), reservationDatePicker.getValue(), radioButton.getText(), student, room));
             new Alert(Alert.AlertType.CONFIRMATION, "reservation updated successfully ! ").show();
+            clear();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "reservation not updated ! ").show();
         }
     }
-
+    void clear(){
+        reservationIdTextField.setText("");
+        reservationDatePicker.setValue(null);
+        roomIdComboBox.setValue("");
+        studentIdComboBOx.setValue("");
+    }
 }
