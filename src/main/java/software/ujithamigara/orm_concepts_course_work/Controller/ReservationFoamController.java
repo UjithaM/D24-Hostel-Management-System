@@ -1,34 +1,44 @@
 package software.ujithamigara.orm_concepts_course_work.Controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import software.ujithamigara.orm_concepts_course_work.bo.BOFactory;
 import software.ujithamigara.orm_concepts_course_work.bo.custrom.ReservationBO;
 import software.ujithamigara.orm_concepts_course_work.bo.custrom.RoomBO;
 import software.ujithamigara.orm_concepts_course_work.bo.custrom.StudentBO;
-import software.ujithamigara.orm_concepts_course_work.dao.DAOFactory;
-import software.ujithamigara.orm_concepts_course_work.dao.custom.ReservationDAO;
 import software.ujithamigara.orm_concepts_course_work.dto.ReservationDTO;
 import software.ujithamigara.orm_concepts_course_work.dto.RoomDTO;
 import software.ujithamigara.orm_concepts_course_work.dto.StudentDTO;
+import software.ujithamigara.orm_concepts_course_work.dto.tm.ReservationTM;
+import software.ujithamigara.orm_concepts_course_work.dto.tm.RoomTM;
 import software.ujithamigara.orm_concepts_course_work.entity.Room;
 import software.ujithamigara.orm_concepts_course_work.entity.Student;
 
-import java.io.IOException;
-import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ReservationFoamController {
+
     @FXML
     private ToggleGroup PaidStatus;
+
+    @FXML
+    private TableColumn<ReservationTM, LocalDate> dobCol;
+
+    @FXML
+    private TableColumn<ReservationTM, String> idCol;
+
+    @FXML
+    private TableColumn<ReservationTM, String> paidStatusCol;
 
     @FXML
     private DatePicker reservationDatePicker;
@@ -37,10 +47,22 @@ public class ReservationFoamController {
     private JFXTextField reservationIdTextField;
 
     @FXML
+    private TableView<ReservationTM> reservationTable;
+
+    @FXML
     private JFXComboBox<String> roomIdComboBox;
 
     @FXML
+    private TableColumn<ReservationTM, String> roomTypeCol;
+
+    @FXML
     private JFXComboBox<String> studentIdComboBOx;
+
+    @FXML
+    private TableColumn<ReservationTM, String> studentNameCol;
+
+    @FXML
+    private JFXButton saveButton;
 
     ReservationBO reservationBO = (ReservationBO) BOFactory.getBoFactory().getBo(BOFactory.BOType.ReservationBO);
     StudentBO studentBO = (StudentBO) BOFactory.getBoFactory().getBo(BOFactory.BOType.StudentBO);
@@ -72,7 +94,13 @@ public class ReservationFoamController {
 
         roomIdComboBox.getItems().addAll(roomIds);
 
+        idCol.setCellValueFactory(new PropertyValueFactory<>("reservationId"));
+        studentNameCol.setCellValueFactory(new PropertyValueFactory<>("studentName"));
+        roomTypeCol.setCellValueFactory(new PropertyValueFactory<>("roomType"));
+        paidStatusCol.setCellValueFactory(new PropertyValueFactory<>("paidStatus"));
+        dobCol.setCellValueFactory(new PropertyValueFactory<>("date"));
 
+        refreshTable();
     }
     @FXML
     void deleteOnAction(ActionEvent event) {
@@ -80,6 +108,7 @@ public class ReservationFoamController {
             reservationBO.deleteReservation(reservationIdTextField.getText());
             new Alert(Alert.AlertType.CONFIRMATION, "reservation deleted successfully !").show();
             clear();
+            refreshTable();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "reservation not deleted !").show();
             e.printStackTrace();
@@ -110,6 +139,7 @@ public class ReservationFoamController {
             reservationBO.saveReservation(new ReservationDTO(reservationIdTextField.getText(), reservationDatePicker.getValue(), radioButton.getText(), student, room));
             new Alert(Alert.AlertType.CONFIRMATION, "reservation added successfully ! ").show();
             clear();
+            refreshTable();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "reservation not added ! ").show();
         }
@@ -139,6 +169,7 @@ public class ReservationFoamController {
             reservationBO.updateReservation(new ReservationDTO(reservationIdTextField.getText(), reservationDatePicker.getValue(), radioButton.getText(), student, room));
             new Alert(Alert.AlertType.CONFIRMATION, "reservation updated successfully ! ").show();
             clear();
+            refreshTable();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "reservation not updated ! ").show();
         }
@@ -148,5 +179,32 @@ public class ReservationFoamController {
         reservationDatePicker.setValue(null);
         roomIdComboBox.setValue("");
         studentIdComboBOx.setValue("");
+        PaidStatus.selectToggle(null);
+    }
+    private void refreshTable() {
+        try {
+            List<ReservationDTO> all = reservationBO.getAllReservation();
+            ObservableList<ReservationTM> studentDtoObservableList = FXCollections.observableArrayList();
+            all.forEach(dto -> studentDtoObservableList.add(new ReservationTM(dto.getReservationId(), dto.getStudent().getStudentName(), dto.getRoom().getRoomTypeId(), dto.getStatus(), dto.getDate())));
+            reservationTable.setItems(studentDtoObservableList);
+        } catch (Exception exception) {
+            new Alert(Alert.AlertType.ERROR, exception.getMessage()).show();
+            reservationTable.getItems().clear();
+        }
+    }
+
+    public void tblReservationOnMouseClicked(MouseEvent mouseEvent) {
+        ReservationTM selectedItem = reservationTable.getSelectionModel().getSelectedItem();
+        try {
+            if (selectedItem != null) {
+                saveButton.setDisable(true);
+//                roomIdTextField.setText(selectedItem.getRoomId());
+//                roomTypeTextField.setText(selectedItem.getRoomTypeId());
+//                keyMoneyTextField.setText(String.valueOf(selectedItem.getKeyMoney()));
+//                QuantityTextField.setText(String.valueOf(selectedItem.getQuantity()));
+            }
+        } catch (RuntimeException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
 }

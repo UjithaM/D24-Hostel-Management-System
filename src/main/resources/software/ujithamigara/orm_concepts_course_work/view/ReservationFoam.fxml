@@ -51,7 +51,7 @@
             <VBox prefHeight="208.0" prefWidth="190.0">
                <children>
                   <Pane prefHeight="42.0" prefWidth="278.0" />
-                  <DatePicker fx:id="reservationDatePicker" prefHeight="37.0" prefWidth="190.0" styleClass="font_size" stylesheets="@../style/style.css" />
+                  <DatePicker fx:id="reservationDatePicker" prefHeight="37.0" prefWidth="190.0" promptText="Date" styleClass="font_size" stylesheets="@../style/style.css" />
                   <Pane prefHeight="42.0" prefWidth="278.0" />
                   <JFXComboBox fx:id="roomIdComboBox" labelFloat="true" prefHeight="26.0" prefWidth="193.0" promptText="Room Id" styleClass="font_size" stylesheets="@../style/style.css" />
                </children>
@@ -72,7 +72,7 @@
       </Label>
       <HBox layoutX="702.0" layoutY="272.0" prefHeight="64.0" prefWidth="412.0">
          <children>
-            <JFXButton buttonType="RAISED" onAction="#saveButtonAction" prefHeight="62.0" prefWidth="113.0" style="-fx-background-color: green;" text="Save" textFill="WHITE">
+            <JFXButton fx:id="saveButton" buttonType="RAISED" onAction="#saveButtonAction" prefHeight="62.0" prefWidth="113.0" style="-fx-background-color: green;" text="Save" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
@@ -91,13 +91,13 @@
             </JFXButton>
          </children>
       </HBox>
-      <TableView layoutX="64.0" layoutY="362.0" prefHeight="340.0" prefWidth="1052.0" style="-fx-border-color: #765827;">
+      <TableView fx:id="reservationTable" layoutX="64.0" layoutY="362.0" onMouseClicked="#tblReservationOnMouseClicked" prefHeight="340.0" prefWidth="1052.0" style="-fx-border-color: #765827;">
          <columns>
-            <TableColumn prefWidth="109.60000610351562" text="Reservation ID" />
-            <TableColumn prefWidth="344.0" text="Student Name" />
-            <TableColumn prefWidth="220.00006103515625" text="Room Type" />
-            <TableColumn prefWidth="202.4000244140625" text="Paid Status" />
-            <TableColumn prefWidth="174.39996337890625" text="DOB" />
+            <TableColumn fx:id="idCol" prefWidth="109.60000610351562" text="Reservation ID" />
+            <TableColumn fx:id="studentNameCol" prefWidth="344.0" text="Student Name" />
+            <TableColumn fx:id="roomTypeCol" prefWidth="220.00006103515625" text="Room Type" />
+            <TableColumn fx:id="paidStatusCol" prefWidth="202.4000244140625" text="Paid Status" />
+            <TableColumn fx:id="dobCol" prefWidth="174.39996337890625" text="DOB" />
          </columns>
       </TableView>
    </children>
