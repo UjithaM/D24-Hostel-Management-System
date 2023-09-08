@@ -8,6 +8,8 @@ import software.ujithamigara.orm_concepts_course_work.entity.Reservation;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReservationBOImpl implements ReservationBO {
     ReservationDAO reservationDAO = (ReservationDAO) DAOFactory.getInstance().getDao(DAOFactory.DaoTypes.ReservationDao);
@@ -30,5 +32,15 @@ public class ReservationBOImpl implements ReservationBO {
     @Override
     public boolean updateReservation(ReservationDTO reservationDTO) throws SQLException, IOException {
         return reservationDAO.update(new Reservation(reservationDTO.getReservationId(), reservationDTO.getDate(), reservationDTO.getStatus(), reservationDTO.getRoom(), reservationDTO.getStudent()));
+    }
+
+    @Override
+    public List<ReservationDTO> getAllReservation() throws SQLException, IOException {
+        List<Reservation> reservations = reservationDAO.getAll();
+        List<ReservationDTO> reservationDTOS = new ArrayList<>();
+        for (Reservation reservation:reservations) {
+            reservationDTOS.add(new ReservationDTO(reservation.getReservationId(), reservation.getDate(), reservation.getStatus(),reservation.getStudent(), reservation.getRoom()));
+        }
+        return reservationDTOS;
     }
 }
