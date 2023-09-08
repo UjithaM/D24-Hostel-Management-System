@@ -8,6 +8,8 @@ import software.ujithamigara.orm_concepts_course_work.entity.Student;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StudentBOImpl implements StudentBO {
     StudentDAO studentDAO = (StudentDAO) DAOFactory.getInstance().getDao(DAOFactory.DaoTypes.StudentsDao);
@@ -44,5 +46,17 @@ public class StudentBOImpl implements StudentBO {
         student.setDob(studentDTO.getDob());
         student.setGender(studentDTO.getGender());
         return studentDAO.update(student);
+    }
+
+    @Override
+    public List<StudentDTO> getAllStudent() throws SQLException, IOException {
+        List<Student> students= studentDAO.getAll();
+        List<StudentDTO> studentDTOS = new ArrayList<>();
+        for (Student student:students) {
+            StudentDTO studentDTO = new StudentDTO(student.getStudentId(), student.getStudentName(),
+                    student.getAddress(), student.getContactNumber(), student.getDob(), student.getGender());
+            studentDTOS.add(studentDTO);
+        }
+        return studentDTOS;
     }
 }

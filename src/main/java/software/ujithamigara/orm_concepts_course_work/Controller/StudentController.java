@@ -51,11 +51,9 @@ public class StudentController {
     void saveButtonAction(ActionEvent event) {
         try {
             RadioButton selectedRadioButton = (RadioButton) GenderRadioButton.getSelectedToggle();
-            LocalDate localDate = dateOfBirthDatePicker.getValue();
-            Instant instant = localDate.atStartOfDay(ZoneId.systemDefault()).toInstant();
             studentBO.saveStudent(new StudentDTO(studentIDTextField.getText(), studentNameTextField.getText(),
                     studentAddressTextField.getText(), studentContactTextField.getText(),
-                    Date.from(instant), selectedRadioButton.getText()));
+                    dateOfBirthDatePicker.getValue(), selectedRadioButton.getText()));
             new Alert(Alert.AlertType.CONFIRMATION, "Student saved successfully ! ").show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,11 +65,9 @@ public class StudentController {
     void updateOnAction(ActionEvent event) {
         try {
             RadioButton selectedRadioButton = (RadioButton) GenderRadioButton.getSelectedToggle();
-            LocalDate localDate = dateOfBirthDatePicker.getValue();
-            Instant instant = localDate.atStartOfDay(ZoneId.systemDefault()).toInstant();
             studentBO.updateStudent(new StudentDTO(studentIDTextField.getText(), studentNameTextField.getText(),
                     studentAddressTextField.getText(), studentContactTextField.getText(),
-                    Date.from(instant), selectedRadioButton.getText()));
+                    dateOfBirthDatePicker.getValue(), selectedRadioButton.getText()));
             new Alert(Alert.AlertType.CONFIRMATION, "Student Update successfully ! ").show();
         } catch (Exception e) {
             e.printStackTrace();

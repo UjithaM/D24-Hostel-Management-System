@@ -15,14 +15,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="740.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.ujithamigara.orm_concepts_course_work.Controller.StudentController">
+<AnchorPane prefHeight="740.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.ujithamigara.orm_concepts_course_work.Controller.ReservationFoamController">
    <children>
       <HBox layoutX="73.0" layoutY="58.0" prefHeight="208.0" prefWidth="1050.0">
          <children>
             <VBox prefHeight="208.0" prefWidth="212.0">
                <children>
                   <Pane prefHeight="42.0" prefWidth="278.0" />
-                  <JFXTextField fx:id="ReservationIdTextField" labelFloat="true" promptText="Reservation Id">
+                  <JFXTextField fx:id="reservationIdTextField" labelFloat="true" promptText="Reservation Id">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -51,7 +51,7 @@
             <VBox prefHeight="208.0" prefWidth="190.0">
                <children>
                   <Pane prefHeight="42.0" prefWidth="278.0" />
-                  <DatePicker fx:id="ReservationDatePicker" prefHeight="37.0" prefWidth="190.0" styleClass="font_size" stylesheets="@../style/style.css" />
+                  <DatePicker fx:id="reservationDatePicker" prefHeight="37.0" prefWidth="190.0" styleClass="font_size" stylesheets="@../style/style.css" />
                   <Pane prefHeight="42.0" prefWidth="278.0" />
                   <JFXComboBox fx:id="roomIdComboBox" labelFloat="true" prefHeight="26.0" prefWidth="193.0" promptText="Room Id" styleClass="font_size" stylesheets="@../style/style.css" />
                </children>

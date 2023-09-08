@@ -9,6 +9,8 @@ import software.ujithamigara.orm_concepts_course_work.entity.Room;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RoomBOImpl implements RoomBO {
     RoomDAO roomDAO = (RoomDAO) DAOFactory.getInstance().getDao(DAOFactory.DaoTypes.RoomDao);
@@ -41,5 +43,17 @@ public class RoomBOImpl implements RoomBO {
         room.setKeyMoney(roomDTO.getKeyMoney());
         room.setQuantity(roomDTO.getQuantity());
         return roomDAO.update(room);
+    }
+
+    @Override
+    public List<RoomDTO> getAllRoom() throws SQLException, IOException {
+        List<Room> rooms = roomDAO.getAll();
+        List<RoomDTO> roomDTOS = new ArrayList<>();
+        for (Room room :
+                rooms) {
+            RoomDTO roomDTO = new RoomDTO(room.getRoomId(), room.getRoomTypeId(), room.getKeyMoney(), room.getQuantity());
+            roomDTOS.add(roomDTO);
+        }
+        return roomDTOS;
     }
 }

@@ -7,13 +7,14 @@ import lombok.NoArgsConstructor;
 import software.ujithamigara.orm_concepts_course_work.entity.Room;
 import software.ujithamigara.orm_concepts_course_work.entity.Student;
 
+import java.time.LocalDate;
 import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReservationDTO {
     private String reservationId;
-    private Date date;
+    private LocalDate date;
     private String status;
     private Student student;
     private Room room;

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 @Data
 @NoArgsConstructor
@@ -17,7 +18,7 @@ public class StudentDTO {
 
     private String contactNumber;
 
-    private Date dob;
+    private LocalDate dob;
 
     private String gender;
 }
