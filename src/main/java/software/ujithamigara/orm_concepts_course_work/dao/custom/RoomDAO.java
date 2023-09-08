@@ -9,5 +9,4 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface RoomDAO extends CrudDAO<Room> {
-    List<Room> getAllRooms() throws SQLException, IOException;
 }
