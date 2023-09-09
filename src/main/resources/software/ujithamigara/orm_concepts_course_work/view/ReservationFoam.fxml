@@ -70,7 +70,7 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <HBox layoutX="702.0" layoutY="272.0" prefHeight="64.0" prefWidth="412.0">
+      <HBox layoutX="506.0" layoutY="272.0" prefHeight="64.0" prefWidth="609.0">
          <children>
             <JFXButton fx:id="saveButton" buttonType="RAISED" onAction="#saveButtonAction" prefHeight="62.0" prefWidth="113.0" style="-fx-background-color: green;" text="Save" textFill="WHITE">
                <font>
@@ -85,6 +85,12 @@
             </JFXButton>
             <Pane prefHeight="64.0" prefWidth="37.0" />
             <JFXButton buttonType="RAISED" onAction="#deleteOnAction" prefHeight="62.0" prefWidth="105.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </JFXButton>
+            <Pane prefHeight="64.0" prefWidth="37.0" />
+            <JFXButton buttonType="RAISED" onAction="#unPaidOnAction" prefHeight="62.0" prefWidth="154.0" style="-fx-background-color: yellow;" text="UnPaid List">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
