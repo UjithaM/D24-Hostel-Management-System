@@ -6,7 +6,7 @@ public class RegExPatterns {
     private static final Pattern billIdPattern = Pattern.compile("B(00[1-9]|0[1-9][0-9]|[1-9][0-9]{2})");
     private static final Pattern studentIdPattern = Pattern.compile("S(00[1-9]|0[1-9][0-9]|[1-9][0-9]{2})");
     private static final Pattern roomIdPattern = Pattern.compile("RM(00[1-9]|0[1-9][0-9]|[1-9][0-9]{2})");
-    private static final Pattern fishIdPattern = Pattern.compile("F(00[1-9]|0[1-9][0-9]|[1-9][0-9]{2})");
+    private static final Pattern reservationId = Pattern.compile("R(00[1-9]|0[1-9][0-9]|[1-9][0-9]{2})");
     private static final Pattern labourPattern = Pattern.compile("L(00[1-9]|0[1-9][0-9]|[1-9][0-9]{2})");
     private static final Pattern orderPattern = Pattern.compile("O(00[1-9]|0[1-9][0-9]|[1-9][0-9]{2})");
     private static final Pattern fishSupplier = Pattern.compile("S(00[1-9]|0[1-9][0-9]|[1-9][0-9]{2})");
@@ -47,8 +47,8 @@ public class RegExPatterns {
         return roomIdPattern;
     }
 
-    public static Pattern getFishIdPattern() {
-        return fishIdPattern;
+    public static Pattern getReservationId() {
+        return reservationId;
     }
 
     public static Pattern getLabourPattern() {
