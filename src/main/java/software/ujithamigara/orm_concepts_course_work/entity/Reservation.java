@@ -24,9 +24,9 @@ public class Reservation {
     @Column(name = "status")
     private String status;
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Room room;
 
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Student student;
 }
