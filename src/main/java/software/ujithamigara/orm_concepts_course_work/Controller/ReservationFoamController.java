@@ -22,11 +22,19 @@ import software.ujithamigara.orm_concepts_course_work.dto.tm.RoomTM;
 import software.ujithamigara.orm_concepts_course_work.entity.Room;
 import software.ujithamigara.orm_concepts_course_work.entity.Student;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReservationFoamController {
+
+    @FXML
+    private RadioButton paidToggle;
+
+    @FXML
+    private RadioButton notPaidToggle;
 
     @FXML
     private ToggleGroup PaidStatus;
@@ -198,6 +206,16 @@ public class ReservationFoamController {
         try {
             if (selectedItem != null) {
                 saveButton.setDisable(true);
+                reservationIdTextField.setText(selectedItem.getReservationId());
+                ReservationDTO reservationDTO = reservationBO.searchReservation(selectedItem.getReservationId());
+                studentIdComboBOx.setValue(reservationDTO.getStudent().getStudentId());
+                roomIdComboBox.setValue(reservationDTO.getRoom().getRoomId());
+                reservationDatePicker.setValue(reservationDTO.getDate());
+                if (selectedItem.getPaidStatus().equals("Paid")) {
+                    paidToggle.setSelected(true);
+                } else {
+                    notPaidToggle.setSelected(true);
+                }
 //                roomIdTextField.setText(selectedItem.getRoomId());
 //                roomTypeTextField.setText(selectedItem.getRoomTypeId());
 //                keyMoneyTextField.setText(String.valueOf(selectedItem.getKeyMoney()));
@@ -205,6 +223,10 @@ public class ReservationFoamController {
             }
         } catch (RuntimeException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
