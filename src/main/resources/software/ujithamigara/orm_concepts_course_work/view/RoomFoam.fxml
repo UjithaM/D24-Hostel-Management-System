@@ -26,7 +26,7 @@
             <VBox prefHeight="270.0" prefWidth="154.0">
                <children>
                   <Pane prefHeight="42.0" prefWidth="278.0" />
-                  <JFXTextField fx:id="roomIdTextField" labelFloat="true" promptText="Room ID">
+                  <JFXTextField fx:id="roomIdTextField" labelFloat="true" onKeyReleased="#roomIdOnKeyReleased" promptText="Room ID">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -37,7 +37,7 @@
             <VBox prefHeight="270.0" prefWidth="178.0">
                <children>
                   <Pane prefHeight="42.0" prefWidth="278.0" />
-                  <JFXTextField fx:id="roomTypeTextField" labelFloat="true" promptText="Room Type">
+                  <JFXTextField fx:id="roomTypeTextField" labelFloat="true" onKeyReleased="#roomTypeOnKeyReleased" promptText="Room Type">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -48,7 +48,7 @@
             <VBox prefHeight="152.0" prefWidth="190.0">
                <children>
                   <Pane prefHeight="42.0" prefWidth="278.0" />
-                  <JFXTextField fx:id="keyMoneyTextField" labelFloat="true" promptText="Key Mony">
+                  <JFXTextField fx:id="keyMoneyTextField" labelFloat="true" onKeyReleased="#keyMoneyOnKeyReleased" promptText="Key Money">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -59,7 +59,7 @@
             <VBox prefHeight="152.0" prefWidth="149.0">
                <children>
                   <Pane prefHeight="42.0" prefWidth="278.0" />
-                  <JFXTextField fx:id="QuantityTextField" labelFloat="true" prefHeight="43.0" prefWidth="162.0" promptText="Quantity">
+                  <JFXTextField fx:id="QuantityTextField" labelFloat="true" onKeyReleased="#quantityOnKeyReleased" prefHeight="43.0" prefWidth="162.0" promptText="Quantity">
                      <font>
                         <Font size="20.0" />
                      </font>
