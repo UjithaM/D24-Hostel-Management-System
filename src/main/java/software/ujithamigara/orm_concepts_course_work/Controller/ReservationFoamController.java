@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import software.ujithamigara.orm_concepts_course_work.bo.BOFactory;
 import software.ujithamigara.orm_concepts_course_work.bo.custrom.ReservationBO;
@@ -21,6 +22,7 @@ import software.ujithamigara.orm_concepts_course_work.dto.tm.ReservationTM;
 import software.ujithamigara.orm_concepts_course_work.dto.tm.RoomTM;
 import software.ujithamigara.orm_concepts_course_work.entity.Room;
 import software.ujithamigara.orm_concepts_course_work.entity.Student;
+import software.ujithamigara.orm_concepts_course_work.util.regex.RegExPatterns;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -125,61 +127,69 @@ public class ReservationFoamController {
 
     @FXML
     void saveButtonAction(ActionEvent event) {
-        try {
-             RadioButton radioButton = (RadioButton) PaidStatus.getSelectedToggle();
+        if (validation()) {
+            try {
+                RadioButton radioButton = (RadioButton) PaidStatus.getSelectedToggle();
 
-             StudentDTO studentDTO = studentBO.searchStudent(studentIdComboBOx.getValue());
-             Student student = new Student();
-             student.setStudentId(studentDTO.getStudentId());
-             student.setStudentName(studentDTO.getStudentName());
-             student.setAddress(studentDTO.getAddress());
-             student.setContactNumber(studentDTO.getContactNumber());
-             student.setDob(studentDTO.getDob());
-             student.setGender(studentDTO.getGender());
+                StudentDTO studentDTO = studentBO.searchStudent(studentIdComboBOx.getValue());
+                Student student = new Student();
+                student.setStudentId(studentDTO.getStudentId());
+                student.setStudentName(studentDTO.getStudentName());
+                student.setAddress(studentDTO.getAddress());
+                student.setContactNumber(studentDTO.getContactNumber());
+                student.setDob(studentDTO.getDob());
+                student.setGender(studentDTO.getGender());
 
-            RoomDTO roomDTO = roomBO.searchRoom(roomIdComboBox.getValue());
-            Room room = new Room();
-            room.setRoomId(roomDTO.getRoomId());
-            room.setRoomTypeId(roomDTO.getRoomTypeId());
-            room.setKeyMoney(roomDTO.getKeyMoney());
-            room.setQuantity(roomDTO.getQuantity());
+                RoomDTO roomDTO = roomBO.searchRoom(roomIdComboBox.getValue());
+                Room room = new Room();
+                room.setRoomId(roomDTO.getRoomId());
+                room.setRoomTypeId(roomDTO.getRoomTypeId());
+                room.setKeyMoney(roomDTO.getKeyMoney());
+                room.setQuantity(roomDTO.getQuantity());
 
-            reservationBO.saveReservation(new ReservationDTO(reservationIdTextField.getText(), reservationDatePicker.getValue(), radioButton.getText(), student, room));
-            new Alert(Alert.AlertType.CONFIRMATION, "reservation added successfully ! ").show();
-            clear();
-            refreshTable();
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "reservation not added ! ").show();
+                reservationBO.saveReservation(new ReservationDTO(reservationIdTextField.getText(), reservationDatePicker.getValue(), radioButton.getText(), student, room));
+                new Alert(Alert.AlertType.CONFIRMATION, "reservation added successfully ! ").show();
+                clear();
+                refreshTable();
+            } catch (Exception e) {
+                new Alert(Alert.AlertType.ERROR, "reservation not added ! ").show();
+            }
+        }else {
+            new Alert(Alert.AlertType.ERROR, "invalid input data in fields!").show();
         }
     }
 
     @FXML
     void updateOnAction(ActionEvent event) {
-        try {
-            RadioButton radioButton = (RadioButton) PaidStatus.getSelectedToggle();
+        if (validation()) {
+            try {
+                RadioButton radioButton = (RadioButton) PaidStatus.getSelectedToggle();
 
-            StudentDTO studentDTO = studentBO.searchStudent(studentIdComboBOx.getValue());
-            Student student = new Student();
-            student.setStudentId(studentDTO.getStudentId());
-            student.setStudentName(studentDTO.getStudentName());
-            student.setAddress(studentDTO.getAddress());
-            student.setContactNumber(studentDTO.getContactNumber());
-            student.setDob(studentDTO.getDob());
-            student.setGender(studentDTO.getGender());
+                StudentDTO studentDTO = studentBO.searchStudent(studentIdComboBOx.getValue());
+                Student student = new Student();
+                student.setStudentId(studentDTO.getStudentId());
+                student.setStudentName(studentDTO.getStudentName());
+                student.setAddress(studentDTO.getAddress());
+                student.setContactNumber(studentDTO.getContactNumber());
+                student.setDob(studentDTO.getDob());
+                student.setGender(studentDTO.getGender());
 
-            RoomDTO roomDTO = roomBO.searchRoom(roomIdComboBox.getValue());
-            Room room = new Room();
-            room.setRoomId(roomDTO.getRoomId());
-            room.setRoomTypeId(roomDTO.getRoomTypeId());
-            room.setKeyMoney(roomDTO.getKeyMoney());
-            room.setQuantity(roomDTO.getQuantity());
+                RoomDTO roomDTO = roomBO.searchRoom(roomIdComboBox.getValue());
+                Room room = new Room();
+                room.setRoomId(roomDTO.getRoomId());
+                room.setRoomTypeId(roomDTO.getRoomTypeId());
+                room.setKeyMoney(roomDTO.getKeyMoney());
+                room.setQuantity(roomDTO.getQuantity());
 
-            reservationBO.updateReservation(new ReservationDTO(reservationIdTextField.getText(), reservationDatePicker.getValue(), radioButton.getText(), student, room));
-            new Alert(Alert.AlertType.CONFIRMATION, "reservation updated successfully ! ").show();
-            clear();
-            refreshTable();
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "reservation not updated ! ").show();
+                reservationBO.updateReservation(new ReservationDTO(reservationIdTextField.getText(), reservationDatePicker.getValue(), radioButton.getText(), student, room));
+                new Alert(Alert.AlertType.CONFIRMATION, "reservation updated successfully ! ").show();
+                clear();
+                refreshTable();
+            } catch (Exception e) {
+                new Alert(Alert.AlertType.ERROR, "reservation not updated ! ").show();
+            }
+        }else {
+            new Alert(Alert.AlertType.ERROR, "invalid input data in fields!").show();
         }
     }
     void clear(){
@@ -228,5 +238,20 @@ public class ReservationFoamController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void reservationIdOnKeyReleased(KeyEvent keyEvent) {
+        if (!reservationIdTextField.getText().matches(RegExPatterns.getReservationId().pattern())){
+            reservationIdTextField.setStyle("-jfx-unfocus-color: red;");
+        }else {
+            reservationIdTextField.setStyle("-jfx-unfocus-color: #4059a9;");
+        }
+    }
+    private boolean validation() {
+        return reservationIdTextField.getText().matches(RegExPatterns.getReservationId().pattern())
+                && reservationDatePicker.getValue() != null
+                && studentIdComboBOx.getValue() != null
+                && PaidStatus.getSelectedToggle() != null
+                && roomIdComboBox.getValue() != null;
     }
 }

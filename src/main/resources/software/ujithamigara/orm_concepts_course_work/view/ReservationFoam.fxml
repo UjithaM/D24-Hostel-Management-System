@@ -22,7 +22,7 @@
             <VBox prefHeight="208.0" prefWidth="212.0">
                <children>
                   <Pane prefHeight="42.0" prefWidth="278.0" />
-                  <JFXTextField fx:id="reservationIdTextField" labelFloat="true" promptText="Reservation Id">
+                  <JFXTextField fx:id="reservationIdTextField" labelFloat="true" onKeyReleased="#reservationIdOnKeyReleased" promptText="Reservation Id">
                      <font>
                         <Font size="20.0" />
                      </font>
