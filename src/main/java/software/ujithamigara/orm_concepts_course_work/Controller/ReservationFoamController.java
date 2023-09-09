@@ -7,10 +7,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import software.ujithamigara.orm_concepts_course_work.bo.BOFactory;
 import software.ujithamigara.orm_concepts_course_work.bo.custrom.ReservationBO;
 import software.ujithamigara.orm_concepts_course_work.bo.custrom.RoomBO;
@@ -253,5 +257,19 @@ public class ReservationFoamController {
                 && studentIdComboBOx.getValue() != null
                 && PaidStatus.getSelectedToggle() != null
                 && roomIdComboBox.getValue() != null;
+    }
+
+    public void unPaidOnAction(ActionEvent actionEvent) {
+        AnchorPane anchorPane = null;
+        try {
+            anchorPane = FXMLLoader.load(getClass().getResource("/software/ujithamigara/orm_concepts_course_work/view/UnPaidList.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Stage stage = new Stage();
+        stage.setScene(new Scene(anchorPane));
+        stage.setTitle("Forget Password");
+        stage.centerOnScreen();
+        stage.show();
     }
 }
