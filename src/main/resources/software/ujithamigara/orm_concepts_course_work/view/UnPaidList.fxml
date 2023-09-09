@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="491.0" prefWidth="984.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="software.ujithamigara.orm_concepts_course_work.Controller.UnPaidListController">
+   <children>
+      <TableView fx:id="unPaidTable" layoutX="17.0" layoutY="19.0" prefHeight="448.0" prefWidth="943.0">
+        <columns>
+          <TableColumn fx:id="studentIdCol" prefWidth="75.0" text="Student Id" />
+          <TableColumn fx:id="studentNameCol" prefWidth="236.5333709716797" text="Student Name" />
+            <TableColumn fx:id="roomIdCol" prefWidth="196.26661682128906" text="Room Id" />
+            <TableColumn fx:id="roomTypeCol" prefWidth="192.00003051757812" text="Room Type" />
+            <TableColumn fx:id="kryMoneyCol" prefWidth="232.26666259765625" text="Key Money" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
